@@ -8,10 +8,48 @@
   margin-top: 20px;
 }
 
-/* .app__body > .MuiPaper-root {
-  flex-basis: 70em;
-} */
-
 .app__body__progressBar {
   margin-top: 150px;
+}
+
+.app__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.app__footer__links {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app__footer__links__seprator {
+  display: none;
+}
+
+.app__footer__searchbar {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.app__footer__searchbar > label {
+  color: gray;
+  margin-right: 1em;
+}
+
+@media (min-width: 768px) {
+  .app__footer__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .app__footer__links__seprator {
+    display: inline;
+    margin: 0 5px;
+  }
 }

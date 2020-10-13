@@ -8,6 +8,7 @@ import { CircularProgress } from "@material-ui/core";
 function App() {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(0);
+  const [initialResLoaded, setInitialResLoaded] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
 
   const storeUpvoteToLocalStorage = (post) => {
@@ -54,6 +55,7 @@ function App() {
         const processedPostsArr = processPosts(res.data.hits);
         console.log(processedPostsArr);
         setPosts(processedPostsArr);
+        setInitialResLoaded(true);
       })
       .catch((err) => {
         console.log(err);
@@ -119,6 +121,53 @@ function App() {
           <CircularProgress className="app__body__progressBar" />
         )}
       </div>
+      {initialResLoaded ? (
+        <div className="app__footer">
+          <div className="app__footer__links">
+            <div>Guidelines</div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              FAQ
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              Support
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              API
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              Security
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              Lists
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              Bookmarklet
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              Legal
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              Apply to YC
+            </div>
+            <div>
+              <span className="app__footer__links__seprator">|</span>
+              Contact
+            </div>
+          </div>
+          <div className="app__footer__searchbar">
+            <label>Search:</label>
+            <input></input>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
