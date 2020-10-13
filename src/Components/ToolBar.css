@@ -11,3 +11,7 @@
 .toolBar__button {
   color: black;
 }
+
+.toolBar__right {
+  display: flex;
+}

@@ -10,6 +10,7 @@ function App() {
   const [page, setPage] = useState(0);
   const [initialResLoaded, setInitialResLoaded] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const storeUpvoteToLocalStorage = (post) => {
     const upvotesObjStr = localStorage.getItem("upvotesObj");
@@ -49,11 +50,11 @@ function App() {
   };
 
   useEffect(() => {
+    setDarkMode(getDarkMode());
     axios
       .get(`/search`)
       .then((res) => {
         const processedPostsArr = processPosts(res.data.hits);
-        console.log(processedPostsArr);
         setPosts(processedPostsArr);
         setInitialResLoaded(true);
       })
@@ -91,7 +92,6 @@ function App() {
   };
 
   const onDownvotePostHandler = (index) => {
-    console.log("upvote:", index);
     const newPosts = [...posts];
     newPosts[index]["upvotes"]--;
     storeUpvoteToLocalStorage(newPosts[index]);
@@ -104,9 +104,22 @@ function App() {
     setPosts(newPosts);
   };
 
+  const onDarkModeToogleHandler = () => {
+    const newDarkMode = darkMode;
+    localStorage.setItem("darkMode", !newDarkMode);
+    setDarkMode(!newDarkMode);
+  };
+
+  const getDarkMode = () => {
+    return JSON.parse(localStorage.getItem("darkMode")) || false;
+  };
+
   return (
-    <div className="app">
-      <Toolbar></Toolbar>
+    <div className={"app " + (darkMode ? "dark-mode" : null)}>
+      <Toolbar
+        darkMode={darkMode}
+        onDarkModeToggle={onDarkModeToogleHandler}
+      ></Toolbar>
       <div className="app__body">
         {posts.length > 0 ? (
           <CustomTable
@@ -116,6 +129,7 @@ function App() {
             onDownvotePost={onDownvotePostHandler}
             onLoadMore={onLoadMoreHandler}
             loadingMore={loadingMore}
+            darkMode={darkMode}
           ></CustomTable>
         ) : (
           <CircularProgress className="app__body__progressBar" />

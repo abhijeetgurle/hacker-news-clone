@@ -5,15 +5,6 @@ import "./CustomTable.css";
 import { getProcessedTIme } from "../utils";
 import { Button, CircularProgress, withStyles } from "@material-ui/core";
 
-const StyledButton = withStyles({
-  root: {
-    background: "rgb(255, 102, 0);",
-  },
-  label: {
-    textTransform: "capitalize",
-  },
-})(Button);
-
 function CustomTable({
   posts,
   onHidePost,
@@ -21,8 +12,19 @@ function CustomTable({
   onDownvotePost,
   onLoadMore,
   loadingMore,
+  darkMode,
 }) {
   const timestamp = getProcessedTIme(posts);
+
+  const StyledButton = withStyles({
+    root: {
+      background: "rgb(255, 102, 0);",
+      color: darkMode ? "white" : "black",
+    },
+    label: {
+      textTransform: "capitalize",
+    },
+  })(Button);
 
   return (
     <div className="customTable">

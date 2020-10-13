@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+.app {
+  min-height: 100vh;
+}
+
 .app__body {
   display: flex;
   justify-content: center;
@@ -52,4 +56,9 @@
     display: inline;
     margin: 0 5px;
   }
+}
+
+.dark-mode {
+  background-color: #1a1919;
+  color: #999;
 }
