@@ -1,0 +1,72 @@
+.customTable {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 70em;
+  margin-bottom: 40px;
+}
+.customTable__row {
+  display: flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 10px;
+}
+
+.customTable__row:nth-of-type(odd) {
+  background-color: rgb(246, 246, 239);
+}
+
+.customTable__row > span {
+  color: gray;
+  margin-right: 10px;
+}
+
+.customTable__row__icon {
+  color: gray;
+  cursor: pointer;
+}
+
+.customTable__row__primary > a {
+  text-decoration: none;
+  color: black;
+}
+
+.customTable__row__primary > a:visited {
+  color: gray;
+}
+
+.customTable__row__secondary {
+  font-size: 10px;
+  color: gray;
+}
+
+.customTable__row__secondary__hide {
+  cursor: pointer;
+}
+
+.customTable__row__secondary__downvote {
+  cursor: pointer;
+}
+
+.customTable__row__secondary__seprator {
+  display: none;
+}
+
+.customTable__loadMore {
+  background-color: rgb(255, 102, 0);
+}
+
+.customTable__progressBar {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .customTable__row__secondary {
+    display: flex;
+  }
+
+  .customTable__row__secondary__seprator {
+    display: inline;
+    margin: 0 3px;
+  }
+}

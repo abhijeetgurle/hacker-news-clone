@@ -1,0 +1,13 @@
+.toolBar__header {
+  color: black;
+}
+
+.toolBar__toolbar {
+  background-color: rgb(255, 102, 0);
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolBar__button {
+  color: black;
+}

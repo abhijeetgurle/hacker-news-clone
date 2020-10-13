@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+}
+
+.app__body {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* .app__body > .MuiPaper-root {
+  flex-basis: 70em;
+} */
+
+.app__body__progressBar {
+  margin-top: 150px;
+}
